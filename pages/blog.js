@@ -1,9 +1,14 @@
 import { getSession, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export default function Blog({ data }) {
   // basically useSession function returns two properties
   // which is data and status
-  const { data: session, ...rest } = useSession();
+  const { data: session, status } = useSession();
+
+  useEffect(() => {
+    console.log("user sesssion data : ", session);
+  }, []);
 
   return (
     <>
